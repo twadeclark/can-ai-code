@@ -35,17 +35,30 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser(description='Interview preparation')
     parser.add_argument('--language', type=str, default='python,javascript', help='languages to prepare, comma seperated')
     parser.add_argument('--interview', type=str, default='junior-v2', help='interview to prepare')
-    parser.add_argument('--template', type=str, required=True, help='prompt template file')
+    parser.add_argument('--template', type=str, help='prompt template file')
+    parser.add_argument('--chat',type=str, help='outer chat prompt huggingface model name')
     args = parser.parse_args()
+    
+    if args.chat and not args.template: args.template = default='prompts/chat-simple.txt'
+    assert(args.template)
 
     template = Template(open(args.template).read())
-    template_name = Path(args.template).stem
+    
+    if args.chat:
+        from transformers import AutoTokenizer
+        template_name = 'chat-'+args.chat.replace('/','-').replace('_','-')
+        tokenizer = AutoTokenizer.from_pretrained(args.chat)
+    else:
+        template_name = Path(args.template).stem
+        tokenizer = None
 
     output_filename = f"results/prepare_{args.interview}_{args.language.replace(',', '-')}_{template_name}.ndjson"
     outputs = []
     for test in load_questions(interview=args.interview):
         for language in args.language.split(','):
             prompt = template.render({'language': language, **test})
+            if tokenizer:
+                prompt = tokenizer.apply_chat_template([{'role': 'user', 'content': prompt}], tokenize=False, add_generation_prompt=True)
             
             output = test.copy()
             del output['Checks']

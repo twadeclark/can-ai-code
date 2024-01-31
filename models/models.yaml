@@ -7,7 +7,7 @@ ai21-j2-jumbo-instruct: { name: "AI21 J2", size: "178B", url: "https://www.ai21.
 cohere-command-nightly: { name: "Cohere Command", size: "52B", url: "https://cohere.ai/", tags: ["commercial"] }
 
 mistral-mistral-tiny: { name: "Mistral-Tiny", size: "7B", url: "https://mistral.ai/", tags: ["commercial","mistral"] }
-mistral-mistral-small: { name: "Mistral-Small", size: "56B", url: "https://mistral.ai/", tags: ["commercial","mistral"] }
+mistral-mistral-small: { name: "Mistral-Small", size: "46B", url: "https://mistral.ai/", tags: ["commercial","mistral"] }
 mistral-mistral-medium: { name: "Mistral-Medium", url: "https://mistral.ai/", tags: ["commercial","mistral"] }
 
 bigcode-starcoderbase-1b-fp16: { name: 'StarCoderBase', size: '1B', tags: ["bigcode"] }
@@ -36,6 +36,10 @@ WizardCoder-15B-V1.0.Q5-0: { name: "WizardCoder", size: "15B", tags: ["bigcode",
 WizardCoder-15B-V1.0.Q5-1: { name: "WizardCoder", size: "15B", tags: ["bigcode","wizard"], quant: "GGUF-Q5_1", url: "https://huggingface.co/mike-ravkine/WizardCoder-15B-V1.0-GGUF" }
 WizardCoder-15B-V1.0.Q8-0: { name: "WizardCoder", size: "15B", tags: ["bigcode","wizard"], quant: "GGUF-Q8_0", url: "https://huggingface.co/mike-ravkine/WizardCoder-15B-V1.0-GGUF" }
 WizardLM-WizardCoder-33B-V1.1: { name: "WizardCoder v1.1", size: "33B", tags: ["deepseek","wizard"] }
+WizardLM-WizardCoder-Python-7B-V1.0: { name: "WizardCoder-Python", size: "7B", tags: ["bigcode","wizard"] }
+WizardLM-WizardCoder-Python-13B-V1.0: { name: "WizardCoder-Python", size: "13B", tags: ["bigcode","wizard"] }
+WizardLM-WizardCoder-1B-V1.0: { name: "WizardCoder", size: "1B", tags: ["bigcode","wizard"] }
+WizardLM-WizardCoder-3B-V1.0: { name: "WizardCoder", size: "3B", tags: ["bigcode","wizard"] }
 
 Salesforce-codegen2-1B-fp16: { name: 'Codegen2', size: '1B', tags: ['salesforce'] }
 Salesforce-codegen2-3-7B-fp16: { name: 'Codegen2', size: '3.7B', tags: ['salesforce'], url: "https://huggingface.co/Salesforce/codegen2-3_7B" }
@@ -196,8 +200,10 @@ jondurbin-airoboros-33b-gpt4-m2.0: { name: "Airboros-m2.0", size: "33B", tags: [
 jondurbin-airoboros-m-7b-3.1.2: { name: "Airboros-m-7b-3.1.2", size: "7B", tags: ["airoboros","mistral"] }
 TheBloke-Airoboros-M-7B-3.1.2-AWQ: { name: "Airboros-m-7b-3.1.2", size: "7B", quant: "AWQ-4b", tags: ["airoboros","mistral"] }
 
-budecosystem-code-millenials-13b: { name: "Code Millenials", size: "13B", tags: ["llama2"] }
-budecosystem-code-millenials-34b: { name: "Code Millenials", size: "34B", tags: ["codellama"] }
+budecosystem-code-millenials-1b-fp16: { name: "Code Millenials", size: "1B", tags: ["codemillenials"]  }
+budecosystem-code-millenials-3b-fp16: { name: "Code Millenials", size: "3B", tags: ["codemillenials"]  }
+budecosystem-code-millenials-13b: { name: "Code Millenials", size: "13B", tags: ["codellama","codemillenials"] }
+budecosystem-code-millenials-34b: { name: "Code Millenials", size: "34B", tags: ["codellama","codemillenials"] }
 
 tiiuae-falcon-7b-instruct-fp16: { name: "Falcon Instruct", size: "7B", tags: ["falcon"] }
 TheBloke-falcon-7b-instruct-GPTQ: { name: "Falcon Instruct", size: "7B", quant: "GPTQ-4b", tags: ["falcon"] }
@@ -250,6 +256,8 @@ mixtral-instruct-8x7b-2.10bpw: { name: "Mixtral-8x7B-Instruct", size: "46B", tag
 mixtral-instruct-8x7b-q2k: { name: "Mixtral-8x7B-Instruct", size: "46B", tags: ["mistral"], quant: "GGUF-Q2_K-new", url: "https://huggingface.co/ikawrakow/mixtral-instruct-8x7b-quantized-gguf" }
 mixtral-instruct-8x7b-q3k-small: { name: "Mixtral-8x7B-Instruct", size: "46B", tags: ["mistral"], quant: "GGUF-Q3_K_S-new", url: "https://huggingface.co/ikawrakow/mixtral-instruct-8x7b-quantized-gguf" }
 
+TheBloke-Beyonder-4x7B-v2-AWQ: { name: "Beyonder-4x7B-v2", size: "46B", tags: ["mistral"], quant: "AWQ-4b" }
+
 LoneStriker-dolphin-2.5-mixtral-8x7b-4.0bpw-h6-exl2-2-main: { name: "Dolphin-2.5-Mixtral-8x7B", size: "46B", tags: ["mistral","dolphin"], quant: "EXL2-4.0", url: "https://huggingface.co/LoneStriker/dolphin-2.5-mixtral-8x7b-4.0bpw-h6-exl2-2" }
 LoneStriker-dolphin-2.7-mixtral-8x7b-3.0bpw-h6-exl2-main: { name: "Dolphin-2.7-Mixtral-8x7B", size: "46B", tags: ["mistral","dolphin"], quant: "EXL2-3.0", url: "https://huggingface.co/LoneStriker/dolphin-2.7-mixtral-8x7b-3.0bpw-h6-exl2" }
 LoneStriker-dolphin-2.7-mixtral-8x7b-4.0bpw-h6-exl2-main: { name: "Dolphin-2.7-Mixtral-8x7B", size: "46B", tags: ["mistral","dolphin"], quant: "EXL2-4.0", url: "https://huggingface.co/LoneStriker/dolphin-2.7-mixtral-8x7b-4.0bpw-h6-exl2" }
@@ -279,6 +287,7 @@ deepseek-ai-deepseek-coder-6.7b-instruct: { name: "DeepSeek Coder Instruct", siz
 deepseek-ai-deepseek-coder-6.7b-instruct-fp16: { name: "DeepSeek Coder Instruct", size: "6.7B", tags: ["deepseek"], url: "https://huggingface.co/deepseek-ai/deepseek-coder-6.7b-instruct" }
 TheBloke-deepseek-coder-6.7B-instruct-AWQ: { name: "DeepSeek Coder Instruct", size: "6.7B", tags: ["deepseek"], quant: "AWQ-4b", url: "https://huggingface.co/TheBloke/deepseek-coder-6.7B-instruct-AWQ" }
 TheBloke-deepseek-coder-33B-instruct-AWQ: { name: "DeepSeek Coder Instruct", size: "33B", tags: ["deepseek"], quant: "AWQ-4b", url: "https://huggingface.co/TheBloke/deepseek-coder-33B-instruct-AWQ" }
+deepseek-ai-deepseek-moe-16b-chat-fp16: { name: "DeepSeek MoE Chat", size: "16B", tags: ["deepseek"], url: "https://huggingface.co/deepseek-ai/deepseek-moe-16b-chat" }
 
 ise-uiuc-Magicoder-S-DS-6.7B: { name: "Magicoder-S-DS", size: "6.7B", tags: ["magicoder","deepseek"], url: "https://huggingface.co/ise-uiuc/Magicoder-S-DS-6.7B" }
 ise-uiuc-Magicoder-DS-6.7B: { name: "Magicoder-DS", size: "6.7B", tags: ["magicoder","deepseek"], url: "https://huggingface.co/ise-uiuc/Magicoder-DS-6.7B" }
